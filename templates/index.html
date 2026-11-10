@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raglooker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="page-header">
+        <p class="eyebrow">Local RAG Playground</p>
+        <h1>Game Recommender</h1>
+      </header>
+
+      <section class="panel">
+        <form id="search-form">
+          <label for="query" class="label">Game description</label>
+          <textarea
+            id="query"
+            name="query"
+            rows="5"
+            placeholder="Example: I want a cozy card game with simple mechanics and a fun vibe."
+            required
+          ></textarea>
+          <div class="actions">
+            <button type="submit" id="submit-button">Find matches</button>
+            <p id="status" class="status">Ready.</p>
+          </div>
+        </form>
+      </section>
+
+      <section class="results-stack">
+        <article class="panel answer-panel spotlight-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Recommendation</p>
+              <h2>LLM answer</h2>
+            </div>
+          </div>
+          <div id="answer" class="answer-copy">
+            Enter a description to retrieve matching games.
+          </div>
+        </article>
+
+        <article class="panel matches-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Candidate set</p>
+              <h2>Matches</h2>
+            </div>
+            <span id="match-count" class="badge">0 games</span>
+          </div>
+          <div id="matches" class="matches"></div>
+        </article>
+      </section>
+    </main>
+
+    <template id="match-template">
+      <article class="match-card">
+        <img class="match-image" alt="">
+        <div class="match-body">
+          <div class="match-top">
+            <h3 class="match-title"></h3>
+            <span class="match-score"></span>
+          </div>
+          <p class="match-description"></p>
+          <p class="match-meta"></p>
+          <div class="match-tags"></div>
+          <a class="match-link" target="_blank" rel="noreferrer">Open Steam page</a>
+        </div>
+      </article>
+    </template>
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
