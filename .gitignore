@@ -1,0 +1,25 @@
+# Local data and generated retrieval artifacts
+*.sqlite
+*.sqlite-*
+*.db
+bm25_cache.pkl
+vector_index/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.uv-cache/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
